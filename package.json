@@ -1,0 +1,28 @@
+{
+	"type": "module",
+	"devDependencies": {
+		"@types/node": "^20.11.17",
+		"@types/react": "^18.2.55",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.3.3"
+	},
+	"dependencies": {
+		"@types/react-dom": "^18.2.19",
+		"@vercel/blob": "^0.22.1",
+		"@vercel/edge-config": "^1.0.2",
+		"axios": "^1.6.7",
+		"dotenv": "^16.4.5",
+		"next": "^14.1.0",
+		"openai": "^4.28.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.22.0",
+		"tsx": "^4.7.1"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"transpile": "tsc"
+		}
+}

@@ -1,0 +1,52 @@
+# .gitignore
+.vercel
+
+# Dependency directories
+node_modules/
+.pnpm-store/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional nyc test coverage
+coverage
+
+# Next.js build output
+.next
+out/
+build/
+
+# Gatsby files
+.cache/
+public
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Linux system files
+.*.swp
+.*.swo
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
