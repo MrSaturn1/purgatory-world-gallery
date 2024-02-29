@@ -20,7 +20,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const currentDate = new Date();
   const timeZoneOffset = currentDate.getTimezoneOffset() * 60000; // convert offset to milliseconds
   const adjustedDate = new Date(currentDate.getTime() - timeZoneOffset);
-  const dateFolderName = adjustedDate.toISOString().split('T')[0];
+  // const dateFolderName = adjustedDate.toISOString().split('T')[0];
+  // Temporary hardcoding due to DALL-E billing limit
+  const dateFolderName = "2024-02-24";
   const basePath = `${process.env.VERCEL_BLOB_STORE_NAME}/art/${dateFolderName}`;
   // console.log(`basePath: ${basePath}`);
   const artworks: ArtworkDetails[] = [];
