@@ -11,16 +11,6 @@ console.log("BLOB_READ_WRITE_TOKEN:", process.env.BLOB_READ_WRITE_TOKEN);
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-/*async function saveImageToLocalFolder(imageUrl, filename, folderPath, label) {
-  const response = await axios({ url: imageUrl, responseType: 'stream' });
-  const fullPath = path.join(folderPath, `${label}_${filename}`);
-  return new Promise((resolve, reject) => {
-    response.data.pipe(fs.createWriteStream(fullPath))
-      .on('finish', () => resolve(fullPath))
-      .on('error', (error) => reject(error));
-  });
-}*/
-
 async function uploadImageToVercelBlob(imageUrl, filePath) {
   const blobStoreName = process.env.VERCEL_BLOB_STORE_NAME;
   const fullFilePath = `${blobStoreName}/${filePath}`;
@@ -45,17 +35,6 @@ async function uploadArtworkDetailsToVercelBlob(details, filePath) {
     console.error('Error uploading artwork details to Vercel Blob:', error);
   }
 }
-
-/*async function saveArtworkDetailsToFile(details, folderPath) {
-  // const detailsFilename = `ArtworkDetails_${Date.now()}.json`; // Define a filename for the artwork details
-  const detailsPath = path.join(folderPath, 'details.json');
-  return new Promise((resolve, reject) => {
-    fs.writeFile(detailsPath, JSON.stringify(details, null, 2), (err) => {
-      if (err) reject(err);
-      else resolve();
-    });
-  });
-}*/
 
 export async function dailyArtworkGenerator() {
   const currentDate = new Date();
