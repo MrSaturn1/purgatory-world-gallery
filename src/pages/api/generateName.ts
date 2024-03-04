@@ -1,7 +1,7 @@
 // import OpenAI from 'openai';
 // const openai = new OpenAI();
 
-import { openaiClientPromise, OpenAIInstance } from '../utils/openaiClient';
+import { openaiClientPromise, OpenAIInstance } from '../../utils/openaiClient';
 let openai: OpenAIInstance;
 async function init() {
   openai = await openaiClientPromise;

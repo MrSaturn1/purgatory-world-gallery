@@ -1,11 +1,11 @@
-import nouns from '../data/nouns.json';
-import artists from '../data/artists.json';
-import mediums from '../data/mediums.json';
-import jargons from '../data/jargon.json';
-import generateBiography from '../api/generateBiography';
-import generateName from '../api/generateName';
-import generateTitle from '../api/generateTitle';
-import generateArtistPhoto from '../api/generateArtistPhoto';
+import nouns from '../pages/data/nouns.json';
+import artists from '../pages/data/artists.json';
+import mediums from '../pages/data/mediums.json';
+import jargons from '../pages/data/jargon.json';
+import generateBiography from '../pages/api/generateBiography';
+import generateName from '../pages/api/generateName';
+import generateTitle from '../pages/api/generateTitle';
+import generateArtistPhoto from '../pages/api/generateArtistPhoto';
 
 import { openaiClientPromise, OpenAIInstance } from './openaiClient';
 openaiClientPromise.then(openai => console.log("OpenAI client imported:"));

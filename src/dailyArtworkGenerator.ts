@@ -2,7 +2,7 @@ console.log("dailyArtworkGenerator started")
 import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
-import generateArt from './pages/utils/generateArt';
+import generateArt from './utils/generateArt';
 import { put } from '@vercel/blob';
 import dotenv from 'dotenv';
 dotenv.config();

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { createBlobClient } from '@vercel/blob';
+import { list } from '@vercel/blob';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -17,53 +17,9 @@ interface ArtworkResponse {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ArtworkResponse | { error: string }>) {
-  // Your initial setup remains the same
-  const dateFolderName = "2024-03-02"; // Assuming this is hardcoded temporarily
-  const basePath = `art/${dateFolderName}`; // Note: Removed the store name from the path
-  const artworks: ArtworkDetails[] = [];
-  const blobClient = createBlobClient({ token: process.env.BLOB_READ_WRITE_TOKEN }); // Ensure this is set in your env
-
-  try {
-    for (let i = 1; i <= 9; i++) {
-      const artworkPath = `${basePath}/${i}`;
-      // List the contents of each artwork folder
-      const files = await blobClient.list({ prefix: artworkPath });
-
-      const imageFile = files.find(file => file.key.includes('image_'));
-      const artistFile = files.find(file => file.key.includes('artist_'));
-      const detailsFile = files.find(file => file.key.includes('details'));
-
-      // Assuming the environment variable VERCEL_BLOB_BASE_URL is correctly set up
-      const imageUrl = `${process.env.VERCEL_BLOB_BASE_URL}/${imageFile.key}`;
-      const artistUrl = `${process.env.VERCEL_BLOB_BASE_URL}/${artistFile.key}`;
-
-      // Fetch and parse the artwork details
-      const response = await fetch(`${process.env.VERCEL_BLOB_BASE_URL}/${detailsFile.key}`);
-      const details = await response.json();
-
-      artworks.push({
-        id: imageFile.key, // Changed from pathname to key
-        title: details.title,
-        artist: details.artist,
-        biography: details.biography,
-        imageUrl: imageUrl,
-        artistUrl: artistUrl,
-      });
-    }
-
-    // Send the response with the collected artwork details
-    res.status(200).json({ artworks });
-  } catch (error) {
-    console.error('Error fetching artwork metadata:', error);
-    res.status(500).json({ error: 'Failed to fetch artwork metadata' });
-  }
-}
-
-
-/*export default async function handler(req: NextApiRequest, res: NextApiResponse<ArtworkResponse | { error: string }>) {
-  const currentDate = new Date();
-  const timeZoneOffset = currentDate.getTimezoneOffset() * 60000; // convert offset to milliseconds
-  const adjustedDate = new Date(currentDate.getTime() - timeZoneOffset);
+  // const currentDate = new Date();
+  // const timeZoneOffset = currentDate.getTimezoneOffset() * 60000; // convert offset to milliseconds
+  // const adjustedDate = new Date(currentDate.getTime() - timeZoneOffset);
   // const dateFolderName = adjustedDate.toISOString().split('T')[0];
   // Temporary hardcoding due to DALL-E billing limit
   const dateFolderName = "2024-03-02";
@@ -75,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     for (let i = 1; i <= 9; i++) {
       const artworkPath = `${basePath}/${i}`;
       // Listing the contents of each artwork folder
-      const files = await list({ bucketName: process.env.VERCEL_BLOB_STORE_NAME, prefix: artworkPath });
+      const files = await list({ prefix: artworkPath });
       console.log(files);
       // Find image and artist files based on the naming convention and use their URLs directly
       const imageFile = files.blobs.find(file => file.url.includes('image_'));
@@ -110,4 +66,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     console.error('Error fetching artwork metadata:', error);
     res.status(500).json({ error: 'Failed to fetch artwork metadata' });
   }
-}*/
+}
