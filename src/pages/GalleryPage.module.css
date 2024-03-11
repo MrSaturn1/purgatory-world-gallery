@@ -1,41 +1,125 @@
+.galleryWrapper {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/heavenly-gate2-l6F1dlSVIXmGKf5xABvX4LYdEhR3YU.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .artwork-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates a 3x3 grid */
   gap: 20px; /* Adjust based on your preference */
   margin: 0 auto; /* Center the grid */
-  max-width: 1200px; /* Adjust based on your preference */
+  max-width: 600px; /* Adjust based on your preference */
 }
 
 .artwork-item {
   cursor: pointer;
-  border: 1px solid #ccc; /* Optional, adds border to each item */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .artwork-item img {
-  width: 100%; /* Makes image take full width of the container */
-  height: auto; /* Keeps the aspect ratio of the image */
-  max-height: 200px; /* Adjust based on your preference, controls the image height */
+  width: 128px; /* Makes image take full width of the container */
+  height: 128px; /* Keeps the aspect ratio of the image */
+  object-fit: cover;
 }
 
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 39.2%;
+  left: 50.5%;
   transform: translate(-50%, -50%);
-  background-color: white;
   padding: 20px;
-  z-index: 2; /* Makes sure the modal is above other content */
-  max-width: 500px; /* Adjust based on your preference */
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 20; /* Ensure modal is above overlay */
+  max-width: 380px; /* Adjust based on your preference */
+  width: 80%;
+  max-height: 52vh;
+  overflow-y: auto;
 }
 
 .modal-overlay {
+  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/heavenly-picture-frame2big-0XAdyRuKUSbAlis9ACBBCpuciHpeaP.jpg');
+  background-size: 1200px 1200px;
+  background-position: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1; /* Below the modal but above everything else */
+  z-index: 10; /* Ensure overlay covers other items */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.modal img {
+  width: 512px;
+  height: 512px;
+  object-fit: contain;
+}
+
+.modal .artist-img {
+  width: 200px; /* Adjust as necessary */
+  height: auto;
+  object-fit: contain;
+}
+
+.artwork-item h2, .modal h2 {
+  margin-top: 10px; /* Adjust space between image and title */
+  font-size: 14px; /* Adjust based on your preference */
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.chatContainer input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  width: 50%;
+}
+
+.chatContainer button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.chatBubble {
+  position: fixed;
+  right: 10px; /* Adjust based on the width of the avatar */
+  bottom: 265px; /* Adjust based on the height of the avatar */
+  width: 200px; /* Adjust as needed */
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/gallerist-ps-0XvtfcvYztQytJQpl0MaImNWWCnZbw.png');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  right: 10px;
+  bottom: 0px;
+  width: 200px; /* Adjust based on your avatar size */
+  height: 300px;
+  z-index: 30;
 }

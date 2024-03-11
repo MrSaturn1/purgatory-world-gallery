@@ -32,12 +32,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       const artworkPath = `${basePath}/${i}`;
       // Listing the contents of each artwork folder
       const files = await list({ prefix: artworkPath });
-      console.log(files);
       // Find image and artist files based on the naming convention and use their URLs directly
       const imageFile = files.blobs.find(file => file.url.includes('image_'));
       const artistFile = files.blobs.find(file => file.url.includes('artist_'));
-      console.log(`imageFile:`, imageFile);
-      console.log(`artistFile:`, artistFile);
       // Construct URLs for the artwork and artist images using the base URL
       const imageUrl = imageFile.url;
       const artistUrl = artistFile.url;
@@ -60,7 +57,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       });
       // console.log("artworks.push:", artworks);
     }
-    console.log("final artworks", artworks);
     res.status(200).json({ artworks });
   } catch (error) {
     console.error('Error fetching artwork metadata:', error);
