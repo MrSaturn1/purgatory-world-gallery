@@ -101,7 +101,7 @@
   top: 3vh;
   left: 3vw;
   width: 17vw; /* Adjust as needed */
-  height: 50vh; /* Full height of the modal overlay */
+  max-height: 50vh; /* Full height of the modal overlay */
   background-color: black;
   color: limegreen;
   overflow-y: auto;

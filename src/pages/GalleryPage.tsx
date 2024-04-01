@@ -137,7 +137,6 @@ const GalleryPage: React.FC = () => {
             <p>Artist: {selectedArtwork.artist}</p>
             <p>{selectedArtwork.description}</p>
             {/* Add button or link for closing modal if needed */}
-            <button onClick={() => setSelectedArtwork(null)}>Close</button>
           </div>
           <div className={styles["artwork-display"]}>
             <img src={selectedArtwork.imageUrl} alt={selectedArtwork.title} />
