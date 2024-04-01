@@ -1,58 +1,114 @@
 .galleryWrapper {
   font-family: 'Roboto', sans-serif;
-  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/heavenly-gate2-l6F1dlSVIXmGKf5xABvX4LYdEhR3YU.jpg');
-  background-size: cover;
+  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/gallerybg.jpg');
+  background-size: contain;
   background-position: center;
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  width: 100vw;
+}
+
+.galleryWrapper h1 {
+  text-align: left;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: calc(100vh - 10vh); /* Directly subtracting the height of the chat container */
+  margin-top: 2vh;
 }
 
 .artwork-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates a 3x3 grid */
-  gap: 20px; /* Adjust based on your preference */
-  margin: 0 auto; /* Center the grid */
-  max-width: 600px; /* Adjust based on your preference */
+  grid-template-columns: repeat(3, 1fr);
+  gap: .0001vw;
+  width: 100%; /* Full width of the parent container */
+  justify-content: center;
+  max-width: 42vw; /* Limit the max width */
+  overflow: hidden; /* Prevent overflow */
+  margin: 1vw;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1vw;
+  border-radius: 8px;
+  flex-grow: 1; /* Allow it to grow and fill available space */
+  margin-bottom: 13vh; /* Space for chatContainer */
 }
 
 .artwork-item {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.artwork-item img {
-  width: 128px; /* Makes image take full width of the container */
-  height: 128px; /* Keeps the aspect ratio of the image */
-  object-fit: cover;
+  width: 10vw; 
+  height: 10vw; /* Keep this equal to the width for a circle */
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
 .modal {
-  position: fixed;
-  top: 39.2%;
-  left: 50.5%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  z-index: 20; /* Ensure modal is above overlay */
-  max-width: 380px; /* Adjust based on your preference */
-  width: 80%;
-  max-height: 52vh;
-  overflow-y: auto;
-}
-
-.modal-overlay {
-  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/heavenly-picture-frame2big-0XAdyRuKUSbAlis9ACBBCpuciHpeaP.jpg');
-  background-size: 1200px 1200px;
-  background-position: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10; /* Ensure overlay covers other items */
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-overlay {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/movie-theater.jpg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: black;
+  z-index: 20;
+  overflow: hidden; /* Prevent scrolling on the modal overlay */
+}
+
+.modal-content {
+  display: flex;
+  height: 75vh; /* Or whatever fits your theater screen best */
+  width: 75vw; /* Adjust based on your preference */
+  position: relative;
+}
+
+.artwork-display {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 8.3vh;
+  left: 20.1vw;
+  width: 60vw; /* Adjust based on your preference */
+  height: 60vh;
+  display: flex;
+}
+
+.artwork-display img {
+  max-width: 49vw;
+  max-height: 49vh;
+  object-fit: contain; /* Adjust as needed */
+}
+
+.artwork-description {
+  position: absolute;
+  top: 3vh;
+  left: 3vw;
+  width: 17vw; /* Adjust as needed */
+  height: 50vh; /* Full height of the modal overlay */
+  background-color: black;
+  color: limegreen;
   overflow-y: auto;
+  padding: .2vw;
+  box-sizing: border-box; 
+  border-radius: 8px;
+  z-index: 21;
 }
 
 .modal img {
@@ -61,55 +117,65 @@
   object-fit: contain;
 }
 
-.modal .artist-img {
-  width: 200px; /* Adjust as necessary */
-  height: auto;
-  object-fit: contain;
-}
-
 .artwork-item h2, .modal h2 {
-  margin-top: 10px; /* Adjust space between image and title */
-  font-size: 14px; /* Adjust based on your preference */
+  margin-top: 10px; 
+  font-size: 14px; 
 }
 
 .chatContainer {
+  position: fixed;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  margin-top: 20px;
+  max-width: 60vw;
+  width: 60vw;
+  height: 5vh;
+  min-width: 30vw;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 30; /* Ensure it's above other content */
 }
 
 .chatContainer input[type="text"] {
+  flex-grow: 1; 
+  margin-right: 10px; 
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px;
   font-size: 16px;
-  width: 50%;
+  z-index: 30;
 }
 
 .chatContainer button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: black; /* Green background */
+  color: white; /* White text */
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 16px;
-  margin-top: 10px;
   cursor: pointer;
+  z-index: 30;
 }
 
 .chatBubble {
   position: fixed;
   right: 10px; /* Adjust based on the width of the avatar */
   bottom: 265px; /* Adjust based on the height of the avatar */
-  width: 200px; /* Adjust as needed */
+  width: 200px;
   padding: 10px;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  z-index: 30;
+  overflow-y: auto;
+  max-height: 50vh;
+  box-sizing: border-box;
 }
 
 .avatar {

@@ -1,0 +1,50 @@
+.container {
+  background-image: url('https://h7jkfrcfzumlmjhb.public.blob.vercel-storage.com/pwg-blob/site-assets/heavenly-gate2big.jpg'); /* Adjust the path to your image */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+  height: 100vh; /* Make the container fill the screen height */
+  width: 100vw;
+  color: white; /* Adjust text color as needed */
+  text-align: center; /* Center the text */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.homeTitle {
+  font-size: 4vw; /* Large font size for the title */
+  margin-bottom: 20px; /* Space below the title */
+  box-sizing: border-box;
+  text-shadow: 2px 2px 8px rgba(0,0,0,8); /* Adds shadow to text for better visibility */
+}
+
+.homeText {
+  font-size: 2vw; /* Adjust the font size for the paragraph */
+  margin-bottom: 40px; /* Space below the paragraph */
+  text-shadow: 2px 2px 8px rgba(0,0,0,8); /* Adds shadow to text for better visibility */
+}
+
+.textBox {
+  position: relative;
+  display: inline-block;
+  padding: 20px; /* Adjust based on your needs */
+  border-radius: 8px; /* Optional: Rounds corners of the text box */
+}
+
+.homeLink {
+  background-color: #007bff; /* A brighter, more modern blue */
+  color: white;
+  padding: 1vw 2vw;
+  border: none; /* Removes border */
+  border-radius: 25px; /* More pronounced rounded corners */
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and transform */
+}
+
+.homeLink:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Adds shadow for depth */
+}

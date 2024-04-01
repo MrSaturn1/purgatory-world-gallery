@@ -6,9 +6,20 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Printful API key is not set.' });
     }
 
+    const bodyData = {
+        // Example body data structure
+        // Replace this with the actual data structure required by Printful API for the action you're performing
+        name: "Custom T-Shirt",
+        files: [{
+            url: "https://example.com/path/to/your/artwork.jpg", // URL of your artwork
+            type: "default"
+        }],
+        // Additional product details as required by the Printful endpoint
+    };
+
     // Set up options for Printful API request
     const options = {
-        method: 'GET', // or 'POST', depending on the operation
+        method: 'POST', // or 'POST', depending on the operation
         headers: {
             'Authorization': `Bearer ${printfulApiKey}`,
             'Content-Type': 'application/json'

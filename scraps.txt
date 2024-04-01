@@ -1,0 +1,48 @@
+scraps
+
+.artwork-item {
+  width: 150px; /* Fixed width */
+  height: 150px; /* Fixed height to match the width, creating a square */
+  overflow: hidden; /* Ensures content does not spill outside the circular boundary */
+  display: flex; /* Optional: To center the image inside the item */
+  justify-content: center; /* Optional: Centers the content horizontally */
+  align-items: center; /* Optional: Centers the content vertically */
+}
+
+.artwork-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adjust how the image fits within the container */
+  border-radius: 50%; /* Also make the image itself circular */
+}
+
+
+<div 
+            key={artwork.id} 
+            className={styles["artwork-item"]} 
+            onClick={() => setSelectedArtwork(artwork)}
+            >
+            <img src={artwork.imageUrl} alt={artwork.title} />
+          </div>
+
+
+.chatContainer input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  width: 50%;
+}
+
+.chatContainer button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+<div className={styles["modal-content"]} onClick={(e) => e.stopPropagation()}> {/* Prevent click inside modal from closing it */}
