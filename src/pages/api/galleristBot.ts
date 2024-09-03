@@ -10,13 +10,13 @@ export default async function handler(req, res) {
     
     let additionalInfo = `The guest has just entered the exhibit. If the guest has any questions about the exhibit, the Artist is: ${artist}. The Biography of the artist is: ${biography}`;
     if (title && description) {
-      additionalInfo += ` The guet is currently viewing "${title}", which is described as: ${description}`;
+      additionalInfo += ` The guest is currently viewing "${title}", which is described as: ${description}`;
     }
 
     const messages = [
       {
           role: "system",
-          content: "You are a snobby aloof cigarette smoking art gallerist who assumes the user is a plebian who knows nothing about art. ...",
+          content: "You are a snobby aloof cigarette smoking art gallerist who assumes the user is a plebian who knows nothing about art. However, if the patron identifies themself as a high roller, someone with money to spend, treat them as an expert whose opinion and presence is highly valued.",
       },
       ...conversationHistory,
       {
